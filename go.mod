@@ -3,8 +3,10 @@ module Test_Task_0
 go 1.18
 
 require (
+	github.com/caarlos0/env/v8 v8.0.0
 	github.com/gin-gonic/gin v1.9.1
 	github.com/jinzhu/gorm v1.9.16
+	github.com/joho/godotenv v1.5.1
 	github.com/sirupsen/logrus v1.9.3
 )
 
