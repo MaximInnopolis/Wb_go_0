@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>wb-l0</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        .bg-light-gray {
+            background-color: #ECF0F1;
+        }
+
+        .btn-custom {
+            background-color: #E74C3C;
+            color: #FFFFFF;
+            font-size: 1.3rem;
+            padding: 0.875rem 1.25rem;
+        }
+
+        .form-label {
+            color: #2980B9;
+        }
+
+        .form-input {
+            border-color: #3498DB;
+        }
+
+        .form-btn {
+            background-color: #27AE60;
+            color: #FFFFFF;
+        }
+
+        .field-name {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="bg-light-gray">
+<header class="container mt-3">
+    <div class="container text-center">
+        <a href="/" class="btn btn-custom">Home</a>
+    </div>
+</header>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <h3>Order Details</h3>
+            <ul>
+                <li><span class="field-name">OrderUid:</span> {{ .OrderUid }}</li>
+                <li><span class="field-name">TrackNumber:</span> {{ .TrackNumber }}</li>
+                <li><span class="field-name">Entry:</span> {{ .Entry }}</li>
+                <li><span class="field-name">Delivery:</span>
+                    <ul>
+                        <li><span class="field-name">Name:</span> {{ .Delivery.Name }}</li>
+                        <li><span class="field-name">Phone:</span> {{ .Delivery.Phone }}</li>
+                        <li><span class="field-name">ZIP:</span> {{ .Delivery.Zip }}</li>
+                        <li><span class="field-name">City:</span> {{ .Delivery.City }}</li>
+                        <li><span class="field-name">Address:</span> {{ .Delivery.Address }}</li>
+                        <li><span class="field-name">Region:</span> {{ .Delivery.Region }}</li>
+                        <li><span class="field-name">Email:</span> {{ .Delivery.Email }}</li>
+                    </ul>
+                </li>
+                <li><span class="field-name">Payment:</span>
+                    <ul>
+                        <li><span class="field-name">Transaction:</span> {{ .Payment.Transaction }}</li>
+                        <li><span class="field-name">RequestID:</span> {{ .Payment.RequestId }}</li>
+                        <li><span class="field-name">Currency:</span> {{ .Payment.Currency }}</li>
+                        <li><span class="field-name">Provider:</span> {{ .Payment.Provider }}</li>
+                        <li><span class="field-name">Amount:</span> {{ .Payment.Amount }}</li>
+                        <li><span class="field-name">PaymentDt:</span> {{ .Payment.PaymentDt }}</li>
+                        <li><span class="field-name">Bank:</span> {{ .Payment.Bank }}</li>
+                        <li><span class="field-name">DeliveryCost:</span> {{ .Payment.DeliveryCost }}</li>
+                        <li><span class="field-name">GoodsTotal:</span> {{ .Payment.GoodsTotal }}</li>
+                        <li><span class="field-name">CustomFee:</span> {{ .Payment.CustomFee }}</li>
+                    </ul>
+                </li>
+                <li><span class="field-name">Items:</span>
+                    <ul>
+                        {{range .Items}}
+                        <li><span class="field-name">ChrtID:</span> {{ .ChrtId }}</li>
+                        <li><span class="field-name">TrackNumber:</span> {{ .TrackNumber }}</li>
+                        <li><span class="field-name">Price:</span> {{ .Price }}</li>
+                        <li><span class="field-name">RID:</span> {{ .Rid }}</li>
+                        <li><span class="field-name">Name:</span> {{ .Name }}</li>
+                        <li><span class="field-name">Sale:</span> {{ .Sale }}</li>
+                        <li><span class="field-name">Size:</span> {{ .Size }}</li>
+                        <li><span class="field-name">TotalPrice:</span> {{ .TotalPrice }}</li>
+                        <li><span class="field-name">NmID:</span> {{ .NmId }}</li>
+                        <li><span class="field-name">Brand:</span> {{ .Brand }}</li>
+                        <li><span class="field-name">Status:</span> {{ .Status }}</li>
+                        {{end}}
+                    </ul>
+                </li>
+                <li><span class="field-name">Locale:</span> {{ .Locale }}</li>
+                <li><span class="field-name">InternalSignature:</span> {{ .InternalSignature }}</li>
+                <li><span class="field-name">Customer_id:</span> {{ .CustomerId }}</li>
+                <li><span class="field-name">Delivery_service:</span> {{ .DeliveryService }}</li>
+                <li><span class="field-name">Shardkey:</span> {{ .Shardkey }}</li>
+                <li><span class="field-name">SmID:</span> {{ .SmId }}</li>
+                <li><span class="field-name">DateCreated:</span> {{ .DateCreated }}</li>
+                <li><span class="field-name">OOFShard:</span> {{ .OofShard }}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>
