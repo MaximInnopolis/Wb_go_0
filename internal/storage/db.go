@@ -1,4 +1,4 @@
-package internal
+package storage
 
 import (
 	"Test_Task_0/internal/models"
