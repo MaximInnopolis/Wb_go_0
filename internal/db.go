@@ -1,6 +1,7 @@
 package internal
 
 import (
+	"Test_Task_0/internal/models"
 	"github.com/jinzhu/gorm"
 )
 
