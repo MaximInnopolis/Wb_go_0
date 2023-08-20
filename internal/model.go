@@ -1,4 +1,4 @@
-package Test_Task_0
+package internal
 
 import "time"
 
