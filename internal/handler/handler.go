@@ -1,15 +1,16 @@
-package internal
+package handler
 
 import (
+	"Test_Task_0/internal/repository"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
 
 type Handler struct {
-	repo *Repository
+	repo *repository.Repository
 }
 
-func NewHandler(repo *Repository) *Handler {
+func NewHandler(repo *repository.Repository) *Handler {
 	return &Handler{repo: repo}
 }
 

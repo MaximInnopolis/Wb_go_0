@@ -1,0 +1,39 @@
+services:
+  postgresql-db:
+    container_name: postgres-wb-l0
+    restart: on-failure
+    image: postgres:latest
+    volumes:
+      - postgres_wb:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: ${DBUSERNAME}
+      POSTGRES_PASSWORD: ${DBPASSWORD}
+      POSTGRES_DB: ${DBNAME}
+    ports:
+      - 5432:5432
+
+  nats-streaming:
+    container_name: nats-streaming-wb-l0
+    restart: on-failure
+    image: nats-streaming:latest
+    ports:
+      - 4222:4222
+      - 8222:8222
+    command:
+      - "--cluster_id"
+      - ${CLUSTERID}
+
+  wbl0-app:
+    container_name: wbl0-golang-app
+    build: ./
+    command: ./wait-postgres.sh db ./wbl0
+    ports:
+      - ${SERVERPORT}:${SERVERPORT}
+    depends_on:
+      - postgresql-db
+      - nats-streaming
+    env_file:
+      - .env
+
+volumes:
+  postgres_wb:

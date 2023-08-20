@@ -1,8 +1,13 @@
 package storage
 
 import (
+	"Test_Task_0/config"
 	"Test_Task_0/internal/models"
-	"github.com/jinzhu/gorm"
+	"fmt"
+	"github.com/sirupsen/logrus"
+	"gorm.io/driver/postgres"
+	"gorm.io/gorm"
+	//"github.com/jinzhu/gorm"
 )
 
 type OrderPostgres struct {
@@ -22,4 +27,38 @@ func (o *OrderPostgres) GetAll() ([]models.Order, error) {
 func (o *OrderPostgres) Create(order models.Order) error {
 	err := o.db.Create(&order).Error
 	return err
+}
+
+func ConnectToPostgres(cfg *config.Config) *gorm.DB {
+	conn := fmt.Sprintf(
+		"host=%s port=%s user=%s dbname=%s password=%s sslmode=disable",
+		cfg.Database.Host,
+		cfg.Database.Port,
+		cfg.Database.User,
+		cfg.Database.Dbname,
+		cfg.Database.Password,
+	)
+
+	//db, err := gorm.Open("postgres", conn)
+	db, err := gorm.Open(postgres.Open(conn), &gorm.Config{})
+	if err != nil {
+		logrus.Fatalf("Error connection database: %s", err.Error())
+		return nil
+	}
+
+	err = db.AutoMigrate(&models.Order{}, &models.Item{}, &models.Delivery{}, &models.Payment{})
+	if err != nil {
+		logrus.Fatalf("Error migrating database: %s", err.Error())
+		return nil
+	}
+
+	return db
+}
+
+func CloseDBConnection(db *gorm.DB) error {
+	sqlDB, err := db.DB()
+	if err != nil {
+		return err
+	}
+	return sqlDB.Close()
 }

@@ -2,7 +2,8 @@ package cache
 
 import (
 	"Test_Task_0/internal/models"
-	"github.com/jinzhu/gorm"
+	//"github.com/jinzhu/gorm"
+	"gorm.io/gorm"
 	"sync"
 )
 

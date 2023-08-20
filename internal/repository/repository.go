@@ -1,10 +1,12 @@
-package internal
+package repository
 
 import (
 	"Test_Task_0/internal/cache"
 	"Test_Task_0/internal/models"
 	"Test_Task_0/internal/storage"
-	"github.com/jinzhu/gorm"
+	//"github.com/jinzhu/gorm"
+	"gorm.io/gorm"
+
 	"github.com/sirupsen/logrus"
 )
 
@@ -15,7 +17,7 @@ type OrderRepo interface {
 
 type CacheRepo interface {
 	Set(order models.Order)
-	GetByUid(uuid string) (models.Order, bool)
+	GetByUid(uid string) (models.Order, bool)
 	GetAll() []models.Order
 }
 

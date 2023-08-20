@@ -1,4 +1,4 @@
-package Test_Task_0
+package config
 
 import (
 	"github.com/caarlos0/env/v8"
