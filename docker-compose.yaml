@@ -34,8 +34,6 @@ services:
       - nats-streaming
     env_file:
       - .env
-    networks:
-       - default
 
 volumes:
   postgres_wb:
