@@ -19,16 +19,6 @@ import (
 )
 
 func main() {
-	//natsClusterID := os.Getenv("NATS_CLUSTERID")
-	//natsClientID := os.Getenv("NATS_CLIENTID")
-	//natsURL := os.Getenv("NATS_URL")
-	//natsChannel := os.Getenv("NATS_CHANNEL")
-	//httpServerAddr := os.Getenv("HTTP_SERVER_ADDR")
-	//host := os.Getenv("DB_HOST")
-	//port, _ := strconv.Atoi(os.Getenv("DB_PORT"))
-	//user := os.Getenv("DB_USER")
-	//password := os.Getenv("DB_PASSWORD")
-	//dbname := os.Getenv("DB_NAME")
 	cfg := config.LoadConfig()
 	logrus.Println("Configuration parsed successfully.")
 
@@ -61,7 +51,4 @@ func main() {
 	if err := sc.ShutDown(); err != nil {
 		logrus.Errorf("Error nats streaming shutting down: %s.", err.Error())
 	}
-	//if err := db.Close(); err != nil {
-	//	logrus.Errorf("Error db connection close : %s.", err.Error())
-	//}
 }
