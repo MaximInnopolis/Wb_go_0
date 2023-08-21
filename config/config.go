@@ -8,7 +8,7 @@ import (
 
 type Config struct {
 	Database struct {
-		Host     string `env:"DBHOST" envDefault:"postgres-wb-l0"`
+		Host     string `env:"DBHOST" envDefault:"postgresql-db"`
 		Port     string `env:"DBPORT" envDefault:"5432"`
 		User     string `env:"DBUSERNAME,required"`
 		Dbname   string `env:"DBNAME,required"`
