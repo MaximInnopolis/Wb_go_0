@@ -7,7 +7,7 @@ run:
 	docker-compose up
 
 run_sender:
-	go run ./cmd/main.go
+	go run ./cmd/test.go
 
 migrate_up:
 	migrate -path ./migration -database "postgresql://${DBUSERNAME}:${DBPASSWORD}@localhost:5432/${DBNAME}?sslmode=disable" -verbose up

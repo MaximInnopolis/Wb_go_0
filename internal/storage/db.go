@@ -25,6 +25,36 @@ func (o *OrderPostgres) GetAll() ([]models.Order, error) {
 }
 
 func (o *OrderPostgres) Create(order models.Order) error {
+	//err := o.db.Session(&gorm.Session{FullSaveAssociations: true}).Clauses(clause.OnConflict{
+	//	Columns: []clause.Column{{Name: "id"}},
+	//	DoUpdates: clause.AssignmentColumns([]string{"order_uid", "track_number",
+	//		"entry", "locale", "internal_signature", "customer_id", "delivery_service",
+	//		"shardkey", "sm_id", "date_created", "oof_shard",
+	//		"order_id", "name", "phone", "zip", "city", "address", "region", "email",
+	//	}),
+	//}).Create(&order).Error
+	//return err
+
+	//err := o.db.Session(&gorm.Session{FullSaveAssociations: true}).Clauses(clause.OnConflict{
+	//	Columns:   []clause.Column{{Name: "delivery_service"}, {Name: "payments"}, {Name: "track_number"}},
+	//	DoUpdates: clause.Assignments(map[string]interface{}{"delivery_service": order.Delivery, "payments": order.Payment, "items": order.Items}),
+	//}).Create(&order).Error
+	//return err
+
+	//if err := o.db.Create(&order.Delivery).Error; err != nil {
+	//	return err
+	//}
+	//
+	//if err := o.db.Create(&order.Payment).Error; err != nil {
+	//	return err
+	//}
+	//
+	//for i := range order.Items {
+	//	if err := o.db.Create(&order.Items[i]).Error; err != nil {
+	//		return err
+	//	}
+	//}
+
 	err := o.db.Create(&order).Error
 	return err
 }

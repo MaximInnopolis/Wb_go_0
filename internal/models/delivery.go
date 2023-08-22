@@ -1,7 +1,8 @@
 package models
 
 type Delivery struct {
-	OrderId int    `gorm:"column:order_id"`
+	ID      uint `gorm:"primaryKey"`
+	OrderId uint
 	Name    string `json:"name"`
 	Phone   string `json:"phone"`
 	Zip     string `json:"zip"`

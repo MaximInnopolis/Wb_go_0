@@ -11,7 +11,7 @@ import (
 var err error
 
 func main() {
-	vv, err := os.ReadFile("./cmd/sender_client/test.json")
+	vv, err := os.ReadFile("./cmd/model.json")
 	if err != nil {
 		logrus.Fatal(err)
 	}
@@ -21,7 +21,7 @@ func main() {
 		logrus.Fatal(err)
 	}
 
-	sc, err := stan.Connect("wbl0-cluster", "sender_client-1", stan.NatsURL(stan.DefaultNatsURL))
+	sc, err := stan.Connect("test-cluster", "sender_client-1", stan.NatsURL(stan.DefaultNatsURL))
 	if err != nil {
 		logrus.Fatal(err)
 	}

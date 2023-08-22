@@ -1,9 +1,12 @@
 package models
 
-import "time"
+import (
+	"time"
+)
 
 type Order struct {
-	Id                int
+	//gorm.Model
+	Id                uint
 	OrderUid          string    `json:"order_uid"`
 	TrackNumber       string    `json:"track_number"`
 	Entry             string    `json:"entry"`

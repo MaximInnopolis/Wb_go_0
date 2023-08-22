@@ -1,4 +1,5 @@
-{
+[
+  {
   "order_uid": "b563feb7b2b84b6test",
   "track_number": "WBILMTESTTRACK",
   "entry": "WBIL",
@@ -46,4 +47,5 @@
   "sm_id": 99,
   "date_created": "2021-11-26T06:22:19Z",
   "oof_shard": "1"
-}
+  }
+]
